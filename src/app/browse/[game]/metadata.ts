@@ -26,14 +26,18 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: `${gameData.name} Items | RobloxMarket`,
     description: gameData.description || `Buy and sell ${gameData.name} items on RobloxMarket.`,
+    alternates: {
+      canonical: `/browse/${game}`,
+    },
     openGraph: {
       title: `${gameData.name} Items | RobloxMarket`,
       description: gameData.description || `Buy and sell ${gameData.name} items.`,
-      images: gameData.coverUrl ? [gameData.coverUrl] : [],
+      url: `/browse/${game}`,
+      images: gameData.coverUrl ? [{ url: gameData.coverUrl }] : [],
       type: "website",
     },
     twitter: {
-      card: "summary",
+      card: "summary_large_image",
       title: `${gameData.name} Items | RobloxMarket`,
       description: gameData.description || `Buy and sell ${gameData.name} items.`,
       images: gameData.coverUrl ? [gameData.coverUrl] : [],

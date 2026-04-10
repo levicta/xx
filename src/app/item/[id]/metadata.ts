@@ -28,10 +28,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: `${listing.title} - ${listing.game.name} | RobloxMarket`,
     description: `Buy ${listing.title} for $${listing.price.toFixed(2)} on RobloxMarket. ${listing.game.name} item.`,
+    alternates: {
+      canonical: `/item/${id}`,
+    },
     openGraph: {
       title: listing.title,
       description: `Buy ${listing.title} for $${listing.price.toFixed(2)}`,
-      images: listing.images[0] ? [listing.images[0]] : [],
+      url: `/item/${id}`,
+      images: listing.images[0] ? [{ url: listing.images[0] }] : [],
       type: "website",
     },
     twitter: {

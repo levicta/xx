@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import { VerificationBadge } from "@/components/seller/VerificationBadge"
 
 interface ListingCardProps {
@@ -27,11 +28,20 @@ export function ListingCard({ listing }: ListingCardProps) {
       className="group block bg-card border border-border rounded-lg overflow-hidden transition-all duration-200 hover:translate-y-[-2px]"
     >
       <div className="relative h-36 bg-muted overflow-hidden">
-        <img
-          src={listing.images[0]}
-          alt={listing.title}
-          className="w-full h-full object-cover"
-        />
+        {listing.images[0] ? (
+          <Image
+            src={listing.images[0]}
+            alt={listing.title}
+            fill
+            sizes="(max-width: 768px) 50vw, 25vw"
+            className="object-cover"
+            priority={false}
+          />
+        ) : (
+          <div className="w-full h-full flex items-center justify-center text-muted-foreground">
+            No image
+          </div>
+        )}
       </div>
 
       <div className="p-3">

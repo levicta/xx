@@ -24,8 +24,32 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: "RBLX.MKT - Buy & Sell Roblox Items",
+  title: {
+    default: "RBLX.MKT - Buy & Sell Roblox Items",
+    template: "%s | RobloxMarket",
+  },
   description: "The peer-to-peer marketplace for buying and selling Roblox virtual items.",
+  metadataBase: new URL(process.env.NEXTAUTH_URL || "http://localhost:3000"),
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "RBLX.MKT - Buy & Sell Roblox Items",
+    description: "The peer-to-peer marketplace for buying and selling Roblox virtual items.",
+    url: "/",
+    siteName: "RobloxMarket",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: "RBLX.MKT - Buy & Sell Roblox Items",
+    description: "The peer-to-peer marketplace for buying and selling Roblox virtual items.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 }
 
 export default function RootLayout({
