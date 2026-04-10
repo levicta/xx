@@ -91,7 +91,7 @@ roblox-market/
 ### Known Blockers/Issues:
 1. **OneDrive build issue**: Project in OneDrive folder causes `.next` build issues. Delete `.next` folder before building.
 2. **Build warnings**: Intermittent "Cannot find module" errors for API routes during build - retry usually works.
-3. **Middleware file**: Named `proxy.ts` instead of `middleware.ts` due to Next.js 16 convention change (project uses Next.js 15.5.15).
+3. **Middleware files**: Both `middleware.ts` (NextAuth) and `proxy.ts` exist in `src/` directory.
 
 ## 6. Code Patterns & Conventions
 - **File naming:** camelCase for files (e.g., `listingCard.tsx`, `recentlyViewed.ts`)
@@ -128,7 +128,7 @@ roblox-market/
 
 ## 9. Decision Log
 - **Prisma downgrade**: v7.x had breaking changes, pinned to 5.22.0
-- **Middleware naming**: Named `proxy.ts` instead of `middleware.ts` for Next.js 16 compatibility
+- **Middleware files**: Both `middleware.ts` (NextAuth) and `proxy.ts` (custom auth protection) exist in `src/` directory - both are used for different purposes
 - **Tailwind v4**: Using `@import 'tailwindcss'` with oklch colors in globals.css
 - **Build optimization**: Using `--no-lint` flag to skip linting during build
 
